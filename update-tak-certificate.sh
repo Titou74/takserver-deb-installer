@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# From https://mytecknet.com/lets-sign-our-tak-server/
 # Default password is atakatak
 
 domain=atakdil.fr
