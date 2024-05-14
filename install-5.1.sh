@@ -16,7 +16,7 @@ sudo apt upgrade
 # If necessery
 sudo reboot
 
-# Upload the .deb file on the server
+# Upload the .deb file on the server on folder /tmp
 
 # Install takserver from /tmp
 cd /tmp
