@@ -20,7 +20,7 @@ sudo reboot
 
 # Install takserver from /tmp
 cd /tmp
-sudo apt install takserver-database-5.1-RELEASEx_all.deb
+sudo apt install takserver_5.1-RELEASEx_all.deb
 
 # Update daemon and start tak server
 sudo systemctl daemon-reload
