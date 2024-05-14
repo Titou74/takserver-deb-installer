@@ -16,6 +16,8 @@ sudo apt upgrade
 # If necessery
 sudo reboot
 
+# Upload the .deb file on the server
+
 # Install takserver from /tmp
 cd /tmp
 sudo apt install takserver-database-5.1-RELEASEx_all.deb
