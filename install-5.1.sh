@@ -40,6 +40,7 @@ sudo certbot certonly --standalone
 # Generate certificates from Let's Encrypt files for TAK Server
 mkdir /opt/tak/certs/letsencrypt
 cd /opt/tak/certs/letsencrypt
+mkdir renew/
 
 # Respect syntax :
 ## yourdomain.ext --> with point separator --> google.fr
@@ -50,6 +51,8 @@ openssl pkcs12 -export -in /etc/letsencrypt/live/<yourdomain.ext>/fullchain.pem 
 sudo keytool -importkeystore -destkeystore <yourdomain-ext>.jks -srckeystore renew/<yourdomain-ext>.p12 -srcstoretype pkcs12
 
 ## Configure user certificates
+cd /opt/tak/certs
+
 export STATE=state
 export CITY=city
 export ORGANIZATIONAL_UNIT=org_unit
@@ -59,9 +62,12 @@ export ORGANIZATIONAL_UNIT=org_unit
 ./makeCert.sh ca intermediate-CA
 ./makeCert.sh server takserver
 ./makeCert.sh client admin
+
+service takserver restart
 java -jar /opt/tak/utils/UserManager.jar usermod -A -p <admin-password> admin
 
 ## Update CoreConfig.xml file
+cd /opt/tak
 sudo nano CoreConfig.xml
 
 # Inside the file, replace :
