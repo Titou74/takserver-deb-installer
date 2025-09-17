@@ -64,10 +64,10 @@ export ORGANIZATIONAL_UNIT=org_unit
 ./makeRootCa.sh --ca-name takserver-CA
 ./makeCert.sh ca intermediate-CA
 ./makeCert.sh server takserver
-./makeCert.sh client <admin-login>
+./makeCert.sh client admin
 
 service takserver restart
-java -jar /opt/tak/utils/UserManager.jar usermod -A -p <admin-password> <admin-login>
+java -jar /opt/tak/utils/UserManager.jar usermod -A -p <admin-password> admin
 
 ## Update CoreConfig.xml file
 cd /opt/tak
