@@ -1,4 +1,5 @@
-# Tested on Ubuntu 22.04
+# Tested on Ubuntu 22.04 LTS
+# Tested with TakServer 5.5 release 53
 
 ## Install TAKSERVER
 
@@ -20,7 +21,7 @@ sudo reboot
 
 # Install takserver from /tmp
 cd /tmp
-sudo apt install takserver_5.1-RELEASEx_all.deb
+sudo apt install takserver_5.5-RELEASEx_all.deb
 
 # Update daemon and start tak server
 sudo systemctl daemon-reload
@@ -63,10 +64,10 @@ export ORGANIZATIONAL_UNIT=org_unit
 ./makeRootCa.sh --ca-name takserver-CA
 ./makeCert.sh ca intermediate-CA
 ./makeCert.sh server takserver
-./makeCert.sh client admin
+./makeCert.sh client <admin-login>
 
 service takserver restart
-java -jar /opt/tak/utils/UserManager.jar usermod -A -p <admin-password> admin
+java -jar /opt/tak/utils/UserManager.jar usermod -A -p <admin-password> <admin-login>
 
 ## Update CoreConfig.xml file
 cd /opt/tak
